@@ -9,6 +9,42 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(readxl)
 ```
+
+## import data sets
+
+```{r}
+litters_data = read_csv("./data/FAS_litters.csv")
+litters_data = janitor::clean_names(litters_data)
+pups_data = read_csv("./data/FAS_pups.csv")
+pups_data = janitor::clean_names(pups_data)
+```
+
+## Selecting !!
+
+```{r}
+select(litters_data, group, litter_number)
+select(litters_data, group, litter_number, starts_with("pups"))
+select(litters_data, litter_number, group, everything() )
+select(litters_data, -group)
+select(litters_data, litter_number, gd0_weight:pups_born_alive)
+
+select(litters_data, GROUP = group, litter_number)
+
+rename(litters_data, GROUP = group)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
