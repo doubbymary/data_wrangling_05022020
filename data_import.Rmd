@@ -1,0 +1,13 @@
+---
+title: "data import"
+author: "Xiaoyue Ma"
+date: "5/2/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
