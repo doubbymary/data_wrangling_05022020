@@ -88,6 +88,38 @@ arrange(litters_data, desc(gd_of_birth))
 arrange(litters_data, pups_born_alive, gd0_weight)
 ```
 
+## Pipe
+
+Create a collection of commands...
+
+```{r}
+  read_csv("./data/FAS_litters.csv") %>% 
+  janitor::clean_names() %>% 
+  select(-pups_survive) %>% 
+  mutate(
+    wt_gain = gd18_weight - gd0_weight,
+    group = str_to_lower(group)) %>% 
+  drop_na(gd0_weight)
+```
+
+```{r, eval=FALSE}
+litters_data %>% view()
+
+litters_data %>% pull(gd0_weight) %>% mean
+ ```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
